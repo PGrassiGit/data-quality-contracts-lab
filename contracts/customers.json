@@ -1,0 +1,11 @@
+{
+  "dataset": "customers",
+  "primary_key": ["customer_id"],
+  "freshness_field": "created_at",
+  "fields": [
+    {"name": "customer_id", "type": "string", "required": true},
+    {"name": "company_name", "type": "string", "required": true},
+    {"name": "country", "type": "string", "required": true},
+    {"name": "created_at", "type": "date", "required": true}
+  ]
+}

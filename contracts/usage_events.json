@@ -1,0 +1,13 @@
+{
+  "dataset": "usage_events",
+  "primary_key": ["event_id"],
+  "freshness_field": "event_date",
+  "fields": [
+    {"name": "event_id", "type": "string", "required": true},
+    {"name": "customer_id", "type": "string", "required": true},
+    {"name": "subscription_id", "type": "string", "required": true},
+    {"name": "event_date", "type": "date", "required": true},
+    {"name": "event_type", "type": "string", "required": true},
+    {"name": "quantity", "type": "integer", "required": true}
+  ]
+}

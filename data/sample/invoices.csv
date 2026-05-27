@@ -1,0 +1,4 @@
+invoice_id,customer_id,subscription_id,invoice_date,amount,status
+I001,C001,S001,2026-02-01,249.00,paid
+I002,C002,S002,2026-02-01,99.00,open
+I003,C003,S003,2026-02-01,799.00,void

@@ -1,0 +1,13 @@
+{
+  "dataset": "invoices",
+  "primary_key": ["invoice_id"],
+  "freshness_field": "invoice_date",
+  "fields": [
+    {"name": "invoice_id", "type": "string", "required": true},
+    {"name": "customer_id", "type": "string", "required": true},
+    {"name": "subscription_id", "type": "string", "required": true},
+    {"name": "invoice_date", "type": "date", "required": true},
+    {"name": "amount", "type": "number", "required": true},
+    {"name": "status", "type": "string", "required": true}
+  ]
+}
