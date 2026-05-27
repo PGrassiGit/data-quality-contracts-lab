@@ -56,6 +56,32 @@ def validate_rows(contract: DatasetContract, rows: list[dict[str, str]]) -> Vali
     return ValidationResult(contract.dataset, len(rows), issues)
 
 
+def validate_references(
+    contract: DatasetContract,
+    rows: list[dict[str, str]],
+    datasets: dict[str, list[dict[str, str]]],
+) -> list[ValidationIssue]:
+    issues: list[ValidationIssue] = []
+    if not contract.references:
+        return issues
+
+    for field, target in contract.references.items():
+        target_dataset, target_field = target.split(".", maxsplit=1)
+        allowed_values = {row.get(target_field, "") for row in datasets.get(target_dataset, [])}
+        for index, row in enumerate(rows, start=2):
+            value = row.get(field, "")
+            if value and value not in allowed_values:
+                issues.append(
+                    ValidationIssue(
+                        dataset=contract.dataset,
+                        row_number=index,
+                        field=field,
+                        message=f"missing reference: {target}",
+                    )
+                )
+    return issues
+
+
 def validate_dataset(contract: DatasetContract, data_dir: Path) -> ValidationResult:
     rows = read_csv(data_dir / f"{contract.dataset}.csv")
     return validate_rows(contract, rows)

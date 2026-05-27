@@ -1,0 +1,3 @@
+subscription_id,customer_id,plan_id,status,started_at
+S001,C001,growth,active,2025-10-01
+S999,C999,growth,active,2026-01-01

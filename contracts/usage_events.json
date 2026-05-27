@@ -2,6 +2,10 @@
   "dataset": "usage_events",
   "primary_key": ["event_id"],
   "freshness_field": "event_date",
+  "references": {
+    "customer_id": "customers.customer_id",
+    "subscription_id": "subscriptions.subscription_id"
+  },
   "fields": [
     {"name": "event_id", "type": "string", "required": true},
     {"name": "customer_id", "type": "string", "required": true},

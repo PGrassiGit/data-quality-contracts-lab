@@ -1,0 +1,3 @@
+customer_id,company_name,country,created_at
+C001,Northwind Labs,US,2025-10-01
+C001,Duplicate Customer,US,2025-10-02

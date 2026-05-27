@@ -35,6 +35,8 @@ On Windows without installing the package, set `PYTHONPATH=src` before running t
 
 The tests cover contract loading, required fields, duplicate keys, quarantine output, reports, and the CLI path.
 
+The `data/bad` folder contains an intentionally broken fixture for review and tests.
+
 ## Production Notes
 
 - Contracts should be versioned with the pipeline that consumes the dataset.
@@ -45,6 +47,7 @@ The tests cover contract loading, required fields, duplicate keys, quarantine ou
 ## Docs
 
 - [Architecture](docs/architecture.md)
+- [Sample validation report](examples/reports/validation_report.md)
 
 ## Portuguese
 

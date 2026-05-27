@@ -1,0 +1,15 @@
+{
+  "dataset": "subscriptions",
+  "primary_key": ["subscription_id"],
+  "freshness_field": "started_at",
+  "references": {
+    "customer_id": "customers.customer_id"
+  },
+  "fields": [
+    {"name": "subscription_id", "type": "string", "required": true},
+    {"name": "customer_id", "type": "string", "required": true},
+    {"name": "plan_id", "type": "string", "required": true},
+    {"name": "status", "type": "string", "required": true},
+    {"name": "started_at", "type": "date", "required": true}
+  ]
+}

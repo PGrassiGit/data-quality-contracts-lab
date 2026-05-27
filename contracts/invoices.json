@@ -2,6 +2,10 @@
   "dataset": "invoices",
   "primary_key": ["invoice_id"],
   "freshness_field": "invoice_date",
+  "references": {
+    "customer_id": "customers.customer_id",
+    "subscription_id": "subscriptions.subscription_id"
+  },
   "fields": [
     {"name": "invoice_id", "type": "string", "required": true},
     {"name": "customer_id", "type": "string", "required": true},

@@ -2,3 +2,4 @@ event_id,customer_id,subscription_id,event_date,event_type,quantity
 E001,C001,S001,2026-02-15,api_call,15500
 E002,C002,S002,2026-02-15,api_call,2600
 E003,C003,S003,2026-02-15,api_call,31000
+E004,C005,S005,2026-03-15,api_call,7800

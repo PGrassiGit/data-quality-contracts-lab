@@ -19,6 +19,7 @@ class DatasetContract:
     primary_key: list[str]
     fields: list[FieldRule]
     freshness_field: str | None = None
+    references: dict[str, str] | None = None
 
 
 def load_contract(path: Path) -> DatasetContract:
@@ -28,6 +29,7 @@ def load_contract(path: Path) -> DatasetContract:
         primary_key=list(payload.get("primary_key", [])),
         fields=[FieldRule(**field) for field in payload["fields"]],
         freshness_field=payload.get("freshness_field"),
+        references=payload.get("references"),
     )
 
 

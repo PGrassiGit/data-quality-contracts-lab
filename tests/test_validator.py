@@ -2,7 +2,7 @@ from pathlib import Path
 
 from data_quality_contracts_lab.contracts import DatasetContract, FieldRule, load_contract
 from data_quality_contracts_lab.report import render_report
-from data_quality_contracts_lab.validator import quarantine_failed_rows, validate_rows
+from data_quality_contracts_lab.validator import quarantine_failed_rows, validate_references, validate_rows
 
 
 def test_load_contract_reads_fields() -> None:
@@ -76,3 +76,20 @@ def test_render_report_marks_failures() -> None:
 
     assert "status: fail" in report
     assert "required value is missing" in report
+
+
+def test_validate_references_reports_missing_target() -> None:
+    contract = DatasetContract(
+        dataset="invoices",
+        primary_key=["invoice_id"],
+        fields=[FieldRule("invoice_id", "string"), FieldRule("customer_id", "string")],
+        references={"customer_id": "customers.customer_id"},
+    )
+
+    issues = validate_references(
+        contract,
+        [{"invoice_id": "I001", "customer_id": "C999"}],
+        {"customers": [{"customer_id": "C001"}]},
+    )
+
+    assert issues[0].message == "missing reference: customers.customer_id"

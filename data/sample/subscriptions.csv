@@ -1,0 +1,6 @@
+subscription_id,customer_id,plan_id,status,started_at
+S001,C001,growth,active,2025-10-01
+S002,C002,starter,active,2025-11-15
+S003,C003,enterprise,canceled,2025-12-10
+S004,C004,growth,trial,2026-01-05
+S005,C005,growth,active,2026-02-15
